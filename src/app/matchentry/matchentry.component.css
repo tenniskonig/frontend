@@ -1,0 +1,31 @@
+.form-card {
+  width: 80%;
+  margin: auto;
+  margin-top: 1em;
+}
+
+.float {
+  float: left;
+}
+
+.clear {
+  clear: both;
+}
+
+.points {
+  width: 50px;
+}
+
+.satz {
+  width: 20%;
+}
+
+.player-input {
+  width: 35%;
+  margin: 5px;
+}
+
+.full-width {
+  width: 100%;
+}
+
