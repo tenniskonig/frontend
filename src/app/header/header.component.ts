@@ -16,4 +16,8 @@ export class HeaderComponent implements OnInit {
   routeMatchentry() {
     this.router.navigate(['/SpielErstellen']);
   }
+
+  routeHighscore() {
+    this.router.navigate(['/Bestenliste']);
+  }
 }

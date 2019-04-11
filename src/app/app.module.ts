@@ -8,12 +8,15 @@ import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MatchentryComponent } from './matchentry/matchentry.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { HighscoreComponent } from './highscore/highscore.component';
+import {MatTableModule} from '@angular/material';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    MatchentryComponent
+    MatchentryComponent,
+    HighscoreComponent
   ],
   imports: [
     BrowserModule,
@@ -21,6 +24,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     AppRoutingModule,
     ReactiveFormsModule,
     CustomMaterialModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
