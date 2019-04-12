@@ -20,4 +20,8 @@ export class HeaderComponent implements OnInit {
   routeHighscore() {
     this.router.navigate(['/Bestenliste']);
   }
+
+  routeMatchhistory() {
+    this.router.navigate(['/Matchverlauf']);
+  }
 }

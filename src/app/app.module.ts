@@ -10,13 +10,15 @@ import { MatchentryComponent } from './matchentry/matchentry.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { HighscoreComponent } from './highscore/highscore.component';
 import {MatTableModule} from '@angular/material';
+import { MatchHistoryComponent } from './match-history/match-history.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     MatchentryComponent,
-    HighscoreComponent
+    HighscoreComponent,
+    MatchHistoryComponent
   ],
   imports: [
     BrowserModule,
