@@ -24,4 +24,8 @@ export class HeaderComponent implements OnInit {
   routeMatchhistory() {
     this.router.navigate(['/Matchverlauf']);
   }
+
+  routeRules() {
+    this.router.navigate(['/Regeln']);
+  }
 }

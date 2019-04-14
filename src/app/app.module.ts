@@ -11,6 +11,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { HighscoreComponent } from './highscore/highscore.component';
 import {MatTableModule} from '@angular/material';
 import { MatchHistoryComponent } from './match-history/match-history.component';
+import { RulesComponent } from './rules/rules.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MatchHistoryComponent } from './match-history/match-history.component';
     HeaderComponent,
     MatchentryComponent,
     HighscoreComponent,
-    MatchHistoryComponent
+    MatchHistoryComponent,
+    RulesComponent
   ],
   imports: [
     BrowserModule,
