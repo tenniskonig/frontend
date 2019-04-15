@@ -5,6 +5,7 @@ import {AppComponent} from './app.component';
 import {MatchentryComponent} from './matchentry/matchentry.component';
 import {HighscoreComponent} from './highscore/highscore.component';
 import {MatchHistoryComponent} from './match-history/match-history.component';
+import {LoginComponent} from './login/login.component';
 
 // Routen als Placeholder
 const routes: Routes = [
@@ -12,7 +13,8 @@ const routes: Routes = [
   {path: 'SpielErstellen', component: MatchentryComponent},
   {path: 'Bestenliste', component: HighscoreComponent},
   {path: 'Matchverlauf', component: MatchHistoryComponent},
-  {path: 'Regeln', component: AppComponent}
+  {path: 'Regeln', component: AppComponent},
+  {path: 'login', component: LoginComponent}
 ];
 
 @NgModule({
