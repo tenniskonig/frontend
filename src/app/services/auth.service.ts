@@ -2,13 +2,21 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {tap} from 'rxjs/operators';
 import {ConfigService} from './config.service';
+import {Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class JwtService {
+export class AuthService {
+  private emitChangeSource = new Subject<any>();
 
   constructor(private http: HttpClient) {
+  }
+
+  changeEmitted$ = this.emitChangeSource.asObservable();
+
+  emitChange() {
+    this.emitChangeSource.next();
   }
 
   login(username: string, password: string) {

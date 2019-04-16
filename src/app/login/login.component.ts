@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
-import {JwtService} from '../services/jwt.service';
+import {AuthService} from '../services/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
     password: ['', Validators.required],
   });
 
-  constructor(private fb: FormBuilder, private jwt: JwtService) {
+  constructor(private fb: FormBuilder, private jwt: AuthService, private router: Router) {
   }
 
   ngOnInit() {
@@ -22,5 +23,7 @@ export class LoginComponent implements OnInit {
   login() {
     this.jwt.login(this.loginform.controls.username.value, this.loginform.controls.password.value).subscribe();
     localStorage.setItem('user', this.loginform.controls.username.value);
+    this.router.navigate(['']);
+    this.jwt.emitChange();
   }
 }

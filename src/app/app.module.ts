@@ -9,7 +9,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {MatchentryComponent} from './matchentry/matchentry.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HighscoreComponent} from './highscore/highscore.component';
-import {MatTableModule} from '@angular/material';
+import {MatMenuModule, MatTableModule} from '@angular/material';
 import {MatchHistoryComponent} from './match-history/match-history.component';
 import {JwtModule} from '@auth0/angular-jwt';
 import {HttpClientModule} from '@angular/common/http';
@@ -42,7 +42,8 @@ import {LoginComponent} from './login/login.component';
         // alles  bei dem header nicht ersetzt werden soll
         blacklistedRoutes: ['http://tennisClientID:KADFgni46agPQ@localhost:8080/oauth/token']
       }
-    })
+    }),
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

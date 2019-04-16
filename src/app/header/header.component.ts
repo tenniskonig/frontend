@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import {UserService} from '../services/user.service';
+import {AuthService} from '../services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -7,11 +9,17 @@ import {Router} from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  private loggedIn: boolean;
+  currentUsername: string;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private jwt: AuthService, private userService: UserService) {
+    this.jwt.changeEmitted$.subscribe(() => {
+      this.updateUserCredentials();
+    });
   }
 
   ngOnInit() {
+    this.updateUserCredentials();
   }
 
   routeMatchentry() {
@@ -28,5 +36,16 @@ export class HeaderComponent implements OnInit {
 
   routeLogin() {
     this.router.navigate(['/login']);
+  }
+
+  logout() {
+    this.jwt.logout();
+    this.router.navigate(['']);
+    this.updateUserCredentials();
+  }
+
+  updateUserCredentials() {
+    this.loggedIn = this.jwt.loggedIn;
+    this.currentUsername = UserService.currentUsername;
   }
 }
