@@ -9,3 +9,11 @@ mat-form-field {
   margin: 2em;
   margin-left: 0;
 }
+
+mat-card.error {
+  background: lightcoral;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}

@@ -1,11 +1,32 @@
 <mat-toolbar color="primary" class="mat-elevation-z8">
   <mat-toolbar-row>
     <span>Tenniskönig</span>
-    <button mat-button>Spieler erstellen</button>
-    <button mat-button (click)="routeMatchentry()">Spiel erstellen</button>
+    <div [hidden]="!loggedIn">
+      <button mat-button>Spieler erstellen</button>
+    </div>
+    <div [hidden]="!loggedIn">
+      <button mat-button (click)="routeMatchentry()">Spiel erstellen</button>
+    </div>
     <button mat-button (click)="routeHighscore()">Bestenliste</button>
-    <button mat-button (click)="routeMatchhistory()">Matchverlauf</button>
+    <div [hidden]="!loggedIn">
+      <button mat-button (click)="routeMatchhistory()">Matchverlauf</button>
+    </div>
     <button mat-button>Regeln</button>
-    <button mat-button (click)="routeLogin()">Login</button>
+    <span class="spacer"></span>
+    <div [hidden]="loggedIn">
+      <button mat-button (click)="routeLogin()">Login</button>
+    </div>
+    <div [hidden]="!loggedIn">
+      <button mat-button [mat-menu-trigger-for]="profileMenu">
+        {{currentUsername}}
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #profileMenu="matMenu">
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>power_settings_new</mat-icon>
+          Abmelden
+        </button>
+      </mat-menu>
+    </div>
   </mat-toolbar-row>
 </mat-toolbar>

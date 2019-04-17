@@ -14,7 +14,7 @@ export class HighscoreComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.highscores = [{position: 1, matchesPlayed: 13, name: 'Peter', points: 24}]; // Mock Data
+    this.highscores = [{position: 1, id: 1, points: 24}]; // Mock Data
   }
 
 }

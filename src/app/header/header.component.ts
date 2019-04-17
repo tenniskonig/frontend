@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {UserService} from '../services/user.service';
 import {AuthService} from '../services/auth.service';
 
 @Component({
@@ -12,9 +11,10 @@ export class HeaderComponent implements OnInit {
   private loggedIn: boolean;
   currentUsername: string;
 
-  constructor(private router: Router, private jwt: AuthService, private userService: UserService) {
-    this.jwt.changeEmitted$.subscribe(() => {
+  constructor(private router: Router, private auth: AuthService) {
+    this.auth.changeEmitted$.subscribe(() => {
       this.updateUserCredentials();
+      this.loggedIn = true; // only called after login
     });
   }
 
@@ -39,13 +39,13 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
-    this.jwt.logout();
-    this.router.navigate(['']);
+    this.auth.logout();
     this.updateUserCredentials();
+    this.router.navigate(['']);
   }
 
   updateUserCredentials() {
-    this.loggedIn = this.jwt.loggedIn;
-    this.currentUsername = UserService.currentUsername;
+    this.loggedIn = AuthService.loggedIn;
+    this.currentUsername = AuthService.currentUsername;
   }
 }

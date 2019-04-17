@@ -6,13 +6,13 @@ import {MatchentryComponent} from './matchentry/matchentry.component';
 import {HighscoreComponent} from './highscore/highscore.component';
 import {MatchHistoryComponent} from './match-history/match-history.component';
 import {LoginComponent} from './login/login.component';
+import {AuthGuardService as AuthGuard} from './services/auth-guard.service';
 
-// Routen als Placeholder
 const routes: Routes = [
   {path: 'SpielerErstellen', component: AppComponent},
-  {path: 'SpielErstellen', component: MatchentryComponent},
+  {path: 'SpielErstellen', component: MatchentryComponent, canActivate: [AuthGuard]},
   {path: 'Bestenliste', component: HighscoreComponent},
-  {path: 'Matchverlauf', component: MatchHistoryComponent},
+  {path: 'Matchverlauf', component: MatchHistoryComponent, canActivate: [AuthGuard]},
   {path: 'Regeln', component: AppComponent},
   {path: 'login', component: LoginComponent}
 ];

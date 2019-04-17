@@ -9,11 +9,18 @@ import {Subject} from 'rxjs';
 })
 export class AuthService {
   private emitChangeSource = new Subject<any>();
+  changeEmitted$ = this.emitChangeSource.asObservable();
 
   constructor(private http: HttpClient) {
   }
 
-  changeEmitted$ = this.emitChangeSource.asObservable();
+  public static get currentUsername(): string {
+    return localStorage.getItem('user');
+  }
+
+  public static get loggedIn(): boolean {
+    return localStorage.getItem('access_token') !== null;
+  }
 
   emitChange() {
     this.emitChangeSource.next();
@@ -56,7 +63,4 @@ export class AuthService {
     localStorage.removeItem('user');
   }
 
-  public get loggedIn(): boolean {
-    return localStorage.getItem('access_token') !== null;
-  }
 }

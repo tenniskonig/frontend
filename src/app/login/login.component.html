@@ -2,7 +2,17 @@
   <mat-card-header>
     <mat-card-title>Login</mat-card-title>
   </mat-card-header>
+  <!--  Fehler meldung wenn Anmeldung fehlschlägt -->
   <mat-card-content>
+    <mat-card class="error" *ngIf="showError">
+      <mat-card-header>
+        <mat-card-title>Ungültige Anmeldedaten</mat-card-title>
+        <span class="spacer"></span>
+        <button mat-icon-button (click)="hideError()"><mat-icon>clear</mat-icon></button>
+      </mat-card-header>
+      <mat-card-content><span>Bitte gib eine gültige Kombination aus Nutzername und Passwort an!</span></mat-card-content>
+    </mat-card>
+    <!--  Anmeldeformular -->
     <form [formGroup]="loginform">
       <mat-form-field color="accent">
         <input matInput type="text" placeholder="Nutzername" formControlName="username">
@@ -12,7 +22,6 @@
         <mat-error *ngIf="this.loginform.controls.username.hasError('required')">
           Bitte gib einen gültigen Nutzernamen an
         </mat-error>
-
       </mat-form-field>
       <mat-form-field color="accent">
         <input matInput type="password" placeholder="Passwort" formControlName="password">
