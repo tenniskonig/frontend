@@ -3,18 +3,20 @@ import {
   MatAutocompleteModule,
   MatButtonModule,
   MatCardModule,
-  MatCheckboxModule,
+  MatCheckboxModule, MatDatepickerModule,
   MatFormFieldModule,
   MatIconModule,
-  MatInputModule,
+  MatInputModule, MatMenuModule, MatNativeDateModule, MatTableModule,
   MatToolbarModule
 } from '@angular/material';
 
 @NgModule({
   imports: [MatButtonModule, MatCheckboxModule, MatToolbarModule, MatCardModule, MatFormFieldModule,
-    MatIconModule, MatInputModule, MatAutocompleteModule],
+    MatIconModule, MatInputModule, MatAutocompleteModule, MatDatepickerModule, MatNativeDateModule,
+    MatTableModule, MatMenuModule],
   exports: [MatButtonModule, MatCheckboxModule, MatToolbarModule, MatCardModule, MatFormFieldModule,
-    MatIconModule, MatInputModule, MatAutocompleteModule],
+    MatIconModule, MatInputModule, MatAutocompleteModule, MatDatepickerModule, MatNativeDateModule,
+    MatTableModule, MatMenuModule],
 })
 export class CustomMaterialModule {
 }

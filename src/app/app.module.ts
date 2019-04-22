@@ -9,11 +9,12 @@ import {AppRoutingModule} from './app-routing.module';
 import {MatchentryComponent} from './matchentry/matchentry.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HighscoreComponent} from './highscore/highscore.component';
-import {MatMenuModule, MatTableModule} from '@angular/material';
 import {MatchHistoryComponent} from './match-history/match-history.component';
 import {JwtModule} from '@auth0/angular-jwt';
 import {HttpClientModule} from '@angular/common/http';
 import {LoginComponent} from './login/login.component';
+import {RulesComponent} from './rules/rules.component';
+import {MAT_DATE_LOCALE} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {LoginComponent} from './login/login.component';
     MatchentryComponent,
     HighscoreComponent,
     MatchHistoryComponent,
-    LoginComponent
+    LoginComponent,
+    RulesComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +32,6 @@ import {LoginComponent} from './login/login.component';
     AppRoutingModule,
     ReactiveFormsModule,
     CustomMaterialModule,
-    MatTableModule,
     HttpClientModule,
     JwtModule.forRoot({
       config: {
@@ -43,9 +44,10 @@ import {LoginComponent} from './login/login.component';
         blacklistedRoutes: ['http://tennisClientID:KADFgni46agPQ@localhost:8080/oauth/token']
       }
     }),
-    MatMenuModule
   ],
-  providers: [],
+  providers: [
+    {provide: MAT_DATE_LOCALE, useValue: 'de-DE'},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

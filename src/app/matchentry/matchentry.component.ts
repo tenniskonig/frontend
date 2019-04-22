@@ -22,7 +22,8 @@ export class MatchentryComponent implements OnInit {
     satz2pointsplayer2: [''],
     satz3pointsplayer1: [''],
     satz3pointsplayer2: [''],
-    playtime: ['']
+    playtime: [''],
+    playdate: [new Date()]
   });
 
   players: string[] = ['Erwachsener Spieler', 'Peter', 'Herbert', 'Maria']; // Mock values
@@ -71,8 +72,6 @@ export class MatchentryComponent implements OnInit {
   }
 
   submit() {
-    console.log(this.matchform.get('teammatch').value);
-    console.log(this.matchform.get('player1').value);
   }
 
   changeTeammatch() {

@@ -11,7 +11,7 @@
         <mat-form-field color="accent" class="float player-input">
           <input matInput type="text" placeholder="Spieler 1" formControlName="player1" [matAutocomplete]="auto1"
                  (focusout)="changeAdultplayer()">
-        </mat-form-field >
+        </mat-form-field>
         <mat-autocomplete #auto1="matAutocomplete">
           <mat-option *ngFor="let player of filteredPlayers1 | async" [value]="player">{{player}}</mat-option>
         </mat-autocomplete>
@@ -85,6 +85,13 @@
       <div class="playtime" [hidden]="!isAdultPlayer">
         <mat-form-field color="accent">
           <input matInput type="text" placeholder="Gespielte Zeit (hh:mm)" formControlName="playtime">
+        </mat-form-field>
+      </div>
+      <div class="playdate">
+        <mat-form-field color="accent">
+          <input matInput [matDatepicker]="picker" placeholder="Datum" formControlName="playdate">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
       </div>
     </form>
