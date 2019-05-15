@@ -6,15 +6,15 @@ import {
   MatCheckboxModule,
   MatFormFieldModule,
   MatIconModule,
-  MatInputModule,
+  MatInputModule, MatRadioModule,
   MatToolbarModule
 } from '@angular/material';
 
 @NgModule({
   imports: [MatButtonModule, MatCheckboxModule, MatToolbarModule, MatCardModule, MatFormFieldModule,
-    MatIconModule, MatInputModule, MatAutocompleteModule],
+    MatIconModule, MatInputModule, MatAutocompleteModule, MatRadioModule],
   exports: [MatButtonModule, MatCheckboxModule, MatToolbarModule, MatCardModule, MatFormFieldModule,
-    MatIconModule, MatInputModule, MatAutocompleteModule],
+    MatIconModule, MatInputModule, MatAutocompleteModule, MatRadioModule],
 })
 export class CustomMaterialModule {
 }
