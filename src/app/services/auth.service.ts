@@ -2,7 +2,9 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {tap} from 'rxjs/operators';
 import {ConfigService} from './config.service';
-import {Subject} from 'rxjs';
+import {Observable, Subject} from 'rxjs';
+import {Player} from '@angular/core/src/render3/interfaces/player';
+import {User} from '../models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -52,10 +54,13 @@ export class AuthService {
     return formData;
   }
 
-  register(username: string, password: string) {
-    return this.http.post<{ access_token: string }>(ConfigService.baseURL, {username, password}).pipe(tap(res => {
-      this.login(username, password);
-    }));
+  register(firstName: string, lastName: string, password: string, geschlechtw: string): Observable<User> {
+    return this.http.post<User>(ConfigService.baseURL + '/api/player/create', {
+      firstName,
+      lastName,
+      password,
+      geschlechtw
+    });
   }
 
   logout() {

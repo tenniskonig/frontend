@@ -14,6 +14,7 @@ import {MatchHistoryComponent} from './match-history/match-history.component';
 import {JwtModule} from '@auth0/angular-jwt';
 import {HttpClientModule} from '@angular/common/http';
 import {LoginComponent} from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {LoginComponent} from './login/login.component';
     MatchentryComponent,
     HighscoreComponent,
     MatchHistoryComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
