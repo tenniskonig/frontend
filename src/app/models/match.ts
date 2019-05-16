@@ -12,10 +12,9 @@ export class Match {
   gameDate: Date;
   playTime: Time;
 
-
-  constructor(gameID: number, player1team1: number, player2team2: number, player3team1: number,
-              player4team2: number, results: string, gameSetTeam1: number, gameSetTeam2: number,
-              gameDate: Date, playTime: Time) {
+  constructor(player1team1: number, player2team2: number, results: string, gameDate: Date,
+              gameID?: number, player3team1?: number, player4team2?: number,
+              gameSetTeam1?: number, gameSetTeam2?: number, playTime?: Time) {
     this.gameID = gameID;
     this.player1team1 = player1team1;
     this.player2team2 = player2team2;
