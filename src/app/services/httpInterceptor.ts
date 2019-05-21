@@ -1,10 +1,12 @@
-import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {Observable} from 'rxjs';
 
 @Injectable()
 export class JwtHttpInterceptor implements HttpInterceptor {
-  constructor() {}
+  constructor() {
+  }
+
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const token = localStorage.getItem('access_token');
     let clone: HttpRequest<any>;
@@ -17,12 +19,7 @@ export class JwtHttpInterceptor implements HttpInterceptor {
         }
       });
     } else {
-      clone = request.clone({
-        setHeaders: {
-          Accept: `application/json`,
-          'Content-Type': `application/json`
-        }
-      });
+      clone = request.clone(); // keine zusätzlichen header setzen
     }
     return next.handle(clone);
   }
