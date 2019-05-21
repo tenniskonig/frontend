@@ -13,7 +13,9 @@
                  (focusout)="changeAdultplayer()">
         </mat-form-field>
         <mat-autocomplete #auto1="matAutocomplete">
-          <mat-option *ngFor="let player of filteredPlayers1 | async" [value]="player">{{player}}</mat-option>
+          <mat-option *ngFor="let player of filteredPlayers1 | async"
+                      [value]="player.firstName + ' ' + player.lastName"
+                      (click)="setPlayer1(player)">{{player.firstName}} {{player.lastName}}</mat-option>
         </mat-autocomplete>
 
         <!--        Spieler 2 -->
@@ -22,7 +24,9 @@
                  (focusout)="changeAdultplayer()">
         </mat-form-field>
         <mat-autocomplete #auto2="matAutocomplete">
-          <mat-option *ngFor="let player of filteredPlayers2 | async" [value]="player">{{player}}</mat-option>
+          <mat-option *ngFor="let player of filteredPlayers2 | async"
+                      [value]="player.firstName + ' ' + player.lastName"
+                      (click)="setPlayer2(player)">{{player.firstName}} {{player.lastName}}</mat-option>
         </mat-autocomplete>
 
         <mat-checkbox class="float" formControlName="teammatch" (change)="changeTeammatch()">Doppel</mat-checkbox>
@@ -36,7 +40,9 @@
           <input matInput type="text" placeholder="Spieler 3" formControlName="player3" [matAutocomplete]="auto3">
         </mat-form-field>
         <mat-autocomplete #auto3="matAutocomplete">
-          <mat-option *ngFor="let player of filteredPlayers3 | async" [value]="player">{{player}}</mat-option>
+          <mat-option *ngFor="let player of filteredPlayers3 | async"
+                      [value]="player.firstName + ' ' + player.lastName"
+                      (click)="setPlayer3(player)">{{player.firstName}} {{player.lastName}}</mat-option>
         </mat-autocomplete>
 
         <!--        Spieler 4 -->
@@ -44,7 +50,9 @@
           <input matInput type="text" placeholder="Spieler 4" formControlName="player4" [matAutocomplete]="auto4">
         </mat-form-field>
         <mat-autocomplete #auto4="matAutocomplete">
-          <mat-option *ngFor="let player of filteredPlayers4 | async" [value]="player">{{player}}</mat-option>
+          <mat-option *ngFor="let player of filteredPlayers4 | async"
+                      [value]="player.firstName + ' ' + player.lastName"
+                      (click)="setPlayer4(player)">{{player.firstName}} {{player.lastName}}</mat-option>
         </mat-autocomplete>
         <div class="clear"></div>
       </div>
