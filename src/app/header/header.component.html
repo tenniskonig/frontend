@@ -2,9 +2,6 @@
   <mat-toolbar-row>
     <span>Tenniskönig</span>
     <div [hidden]="!loggedIn">
-      <button mat-button>Spieler erstellen</button>
-    </div>
-    <div [hidden]="!loggedIn">
       <button mat-button (click)="routeMatchentry()">Spiel erstellen</button>
     </div>
     <button mat-button (click)="routeHighscore()">Bestenliste</button>
