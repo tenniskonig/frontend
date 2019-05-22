@@ -12,7 +12,7 @@ export class HighscoreEntry {
   }
 
   get name(): string {
-    return this.player.firstName + this.player.lastName;
+    return this.player.firstName + ' ' + this.player.lastName;
   }
 
 }

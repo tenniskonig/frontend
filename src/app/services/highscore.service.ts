@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {HighscoreEntry} from '../models/highscoreEntry';
 import {ConfigService} from './config.service';
@@ -12,7 +12,16 @@ export class HighscoreService {
   constructor(private http: HttpClient) {
   }
 
+  private getHttpOptions() {
+    return {
+      headers: new HttpHeaders({
+        Authorization: 'Basic ' + window.btoa(ConfigService.clientID + ':' + ConfigService.secret)
+      })
+    };
+  }
+
   getHighscores(): Observable<HighscoreEntry[]> {
-    return this.http.get<HighscoreEntry[]>(ConfigService.baseURL + '/api/highscore');
+    const httpOptions = this.getHttpOptions();
+    return this.http.get<HighscoreEntry[]>(ConfigService.baseURL + '/api/highscore', httpOptions);
   }
 }
