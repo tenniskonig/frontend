@@ -22,14 +22,19 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.auth.login(this.loginform.controls.username.value, this.loginform.controls.password.value).subscribe();
-    if (AuthService.loggedIn) {
-      localStorage.setItem('user', this.loginform.controls.username.value);
-      this.router.navigate(['']);
-      this.auth.emitChange();
-    } else {
-      this.showError = true;
-    }
+    this.auth.login(this.loginform.controls.username.value, this.loginform.controls.password.value)
+      .subscribe(() => {
+          if (AuthService.loggedIn) {
+            localStorage.setItem('user', this.loginform.controls.username.value);
+            this.router.navigate(['']);
+            this.auth.emitChange();
+          } else {
+            this.showError = true;
+          }
+        }
+      )
+    ;
+
   }
 
   hideError() {

@@ -9,11 +9,14 @@ import {AppRoutingModule} from './app-routing.module';
 import {MatchentryComponent} from './matchentry/matchentry.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HighscoreComponent} from './highscore/highscore.component';
-import {MatMenuModule, MatTableModule} from '@angular/material';
 import {MatchHistoryComponent} from './match-history/match-history.component';
 import {JwtModule} from '@auth0/angular-jwt';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {LoginComponent} from './login/login.component';
+import {RulesComponent} from './rules/rules.component';
+import {MAT_DATE_LOCALE} from '@angular/material';
+import {JwtHttpInterceptor} from './services/httpInterceptor';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,9 @@ import {LoginComponent} from './login/login.component';
     MatchentryComponent,
     HighscoreComponent,
     MatchHistoryComponent,
-    LoginComponent
+    LoginComponent,
+    RulesComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +35,6 @@ import {LoginComponent} from './login/login.component';
     AppRoutingModule,
     ReactiveFormsModule,
     CustomMaterialModule,
-    MatTableModule,
     HttpClientModule,
     JwtModule.forRoot({
       config: {
@@ -38,14 +42,19 @@ import {LoginComponent} from './login/login.component';
           return localStorage.getItem('access_token');
         },
         // alles bei dem header ersetzt werden soll
-        whitelistedDomains: ['http://localhost:8080'],
+        whitelistedDomains: new Array(new RegExp('^null$'))
+
+  ,
         // alles  bei dem header nicht ersetzt werden soll
-        blacklistedRoutes: ['http://tennisClientID:KADFgni46agPQ@localhost:8080/oauth/token']
+        blacklistedRoutes: ['tennisClientID:KADFgni46agPQ@localhost:8080/oauth/token'],
+        headerName: 'Authorization'
       }
     }),
-    MatMenuModule
   ],
-  providers: [],
+  providers: [
+    {provide: MAT_DATE_LOCALE, useValue: 'de-DE'},
+    { provide: HTTP_INTERCEPTORS, useClass: JwtHttpInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
