@@ -1,11 +1,11 @@
-import {Player} from '@angular/core/src/render3/interfaces/player';
+import {User} from './user';
 
 export class HighscoreEntry {
-  player: Player;
+  player: User;
   points: number;
   matchesPlayed: number;
 
-  constructor(player: Player, points: number, matchesPlayed: number) {
+  constructor(player: User, points: number, matchesPlayed: number) {
     this.player = player;
     this.points = points;
     this.matchesPlayed = matchesPlayed;
@@ -14,4 +14,5 @@ export class HighscoreEntry {
   get name(): string {
     return this.player.firstName + this.player.lastName;
   }
+
 }
