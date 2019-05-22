@@ -13,13 +13,6 @@ export class HighscoreService {
   }
 
   getHighscores(): Observable<HighscoreEntry[]> {
-    let highscore: HighscoreEntry[];
-    this.http.get<HighscoreEntry[]>(ConfigService.baseURL + '/api/highscore').subscribe(res => highscore = res);
-    let i = 1;
-    // highscore.forEach(h => {
-    //   h.setPosition(i);
-    //   i++;
-    // });
-    return Observable.create(highscore);
+    return this.http.get<HighscoreEntry[]>(ConfigService.baseURL + '/api/highscore');
   }
 }

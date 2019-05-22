@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HighscoreEntry} from '../models/highscoreEntry';
+import {HighscoreService} from '../services/highscore.service';
 
 @Component({
   selector: 'app-highscore',
@@ -10,11 +11,10 @@ export class HighscoreComponent implements OnInit {
   highscores: HighscoreEntry[];
   columnsToDisplay = ['position', 'name', 'matchesPlayed', 'points'];
 
-  constructor() {
+  constructor(private highscoreService: HighscoreService) {
   }
 
   ngOnInit() {
-    this.highscores = [{position: 1, id: 1, points: 24}]; // Mock Data
+    this.highscoreService.getHighscores().subscribe(res => this.highscores = res);
   }
-
 }
