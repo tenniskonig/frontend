@@ -27,6 +27,11 @@ export class UserService {
 
   getUserByID(id: number): Observable<User> {
     const httpOptions = this.getHttpOptions();
-    return this.http.get<User>(ConfigService.baseURL + '/api/player/' + id, httpOptions);
+    return this.http.get<User>(ConfigService.baseURL + '/api/player/id/' + id, httpOptions);
+  }
+
+  getUserByUsername(username: string): Observable<User> {
+    const httpOptions = this.getHttpOptions();
+    return this.http.get<User>(ConfigService.baseURL + '/api/player/name/' + username, httpOptions);
   }
 }
