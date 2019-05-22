@@ -16,6 +16,7 @@ import {LoginComponent} from './login/login.component';
 import {RulesComponent} from './rules/rules.component';
 import {MAT_DATE_LOCALE} from '@angular/material';
 import {JwtHttpInterceptor} from './services/httpInterceptor';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {JwtHttpInterceptor} from './services/httpInterceptor';
     HighscoreComponent,
     MatchHistoryComponent,
     LoginComponent,
-    RulesComponent
+    RulesComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

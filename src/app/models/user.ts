@@ -3,6 +3,7 @@ export class User {
   username: string;
   firstName: string;
   lastName: string;
+
   geschlechtW: boolean;
   admin: boolean;
 
