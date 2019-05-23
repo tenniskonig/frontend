@@ -1,8 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Match} from '../models/match';
-import {User} from '../models/user';
+import {AdultMatch, Match, SingleMatch, TeamMatch} from '../models/match';
 import {ConfigService} from './config.service';
 
 @Injectable({
@@ -31,7 +30,17 @@ export class MatchService {
     return this.http.get<Match[]>(ConfigService.baseURL + '/api/match/byplayer/' + id, httpOptions);
   }
 
-  addMatch(match: Match): Observable<Match> {
+  addAdultMatch(match: AdultMatch): Observable<Match> {
+    const httpOptions = this.getHttpOptions();
+    return this.http.post<Match>(ConfigService.baseURL + '/api/match', match, httpOptions);
+  }
+
+  addSingleMatch(match: SingleMatch): Observable<Match> {
+    const httpOptions = this.getHttpOptions();
+    return this.http.post<Match>(ConfigService.baseURL + '/api/match', match, httpOptions);
+  }
+
+  addTeamMatch(match: TeamMatch): Observable<Match> {
     const httpOptions = this.getHttpOptions();
     return this.http.post<Match>(ConfigService.baseURL + '/api/match', match, httpOptions);
   }

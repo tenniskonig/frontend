@@ -123,7 +123,7 @@ export class MatchentryComponent implements OnInit {
     match.player2team2 = this.selectedPlayer2.id;
     match.playTime = this.getPlaytime();
     match.gameDate = this.matchform.get('playdate').value;
-    this.matchservice.addMatch(match).subscribe();
+    this.matchservice.addAdultMatch(match).subscribe();
     this.reset();
   }
 
@@ -138,7 +138,7 @@ export class MatchentryComponent implements OnInit {
     match.gameSetTeam1 = this.gameSetTeam1;
     match.gameSetTeam2 = this.gameSetTeam2;
     match.gameDate = this.matchform.get('playdate').value;
-    this.matchservice.addMatch(match).subscribe();
+    this.matchservice.addTeamMatch(match).subscribe();
     this.reset();
   }
 
@@ -150,7 +150,7 @@ export class MatchentryComponent implements OnInit {
     match.gameSetTeam1 = this.gameSetTeam1;
     match.gameSetTeam2 = this.gameSetTeam2;
     match.gameDate = this.matchform.get('playdate').value;
-    this.matchservice.addMatch(match).subscribe();
+    this.matchservice.addSingleMatch(match).subscribe();
     this.reset();
   }
 
