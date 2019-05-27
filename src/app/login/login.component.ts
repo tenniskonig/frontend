@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import {AuthService} from '../services/auth.service';
 import {Router} from '@angular/router';
+import {UserService} from '../services/user.service';
+import {User} from '../models/user';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +17,7 @@ export class LoginComponent implements OnInit {
   });
   private showError = false;
 
-  constructor(private fb: FormBuilder, private auth: AuthService, private router: Router) {
+  constructor(private fb: FormBuilder, private auth: AuthService, private router: Router, private userService: UserService) {
   }
 
   ngOnInit() {
@@ -25,7 +27,11 @@ export class LoginComponent implements OnInit {
     this.auth.login(this.loginform.controls.username.value, this.loginform.controls.password.value)
       .subscribe(() => {
           if (AuthService.loggedIn) {
-            localStorage.setItem('user', this.loginform.controls.username.value);
+            this.userService.getUserByUsername(this.loginform.controls.username.value).subscribe(
+              res => {
+                localStorage.setItem('username', res.username);
+                localStorage.setItem('userId', res.id.toString());
+              });
             this.router.navigate(['']);
             this.auth.emitChange();
           } else {

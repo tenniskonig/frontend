@@ -13,15 +13,20 @@ export class AuthService {
   private emitChangeSource = new Subject<any>();
   changeEmitted$ = this.emitChangeSource.asObservable();
 
+
   constructor(private http: HttpClient) {
   }
 
   public static get currentUsername(): string {
-    return localStorage.getItem('user');
+    return localStorage.getItem('username');
   }
 
   public static get loggedIn(): boolean {
     return localStorage.getItem('access_token') !== null;
+  }
+
+  public static get currentUserID(): number {
+    return +localStorage.getItem('userId');
   }
 
   emitChange() {
@@ -65,7 +70,8 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem('access_token');
-    localStorage.removeItem('user');
+    localStorage.removeItem('username');
+    localStorage.removeItem('userId');
   }
 
 }

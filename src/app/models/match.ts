@@ -1,26 +1,43 @@
 import {Time} from '@angular/common';
 
-export class Match {
+export interface IMatch {
   gameID: number;
   player1team1: number;
   player2team2: number;
   gameDate: Date;
-
-  constructor() {
-  }
 }
 
-export class SingleMatch extends Match {
+export class Match implements IMatch {
+  gameDate: Date;
+  gameID: number;
+  player1team1: number;
+  player2team2: number;
+  player3team1: number;
+  player4team2: number;
+  results: string;
+  gameSetTeam1: number;
+  gameSetTeam2: number;
+  playTime: Time;
+}
+
+export class SingleMatch implements IMatch {
+  gameDate: Date;
+  gameID: number;
+  player1team1: number;
+  player2team2: number;
   results: string;
   gameSetTeam1: number;
   gameSetTeam2: number;
 
   constructor() {
-    super();
   }
 }
 
-export class TeamMatch extends Match {
+export class TeamMatch implements IMatch {
+  gameDate: Date;
+  gameID: number;
+  player1team1: number;
+  player2team2: number;
   player3team1: number;
   player4team2: number;
   results: string;
@@ -28,14 +45,17 @@ export class TeamMatch extends Match {
   gameSetTeam2: number;
 
   constructor() {
-    super();
   }
 }
 
-export class AdultMatch extends Match {
+export class AdultMatch implements IMatch {
+  gameDate: Date;
+  gameID: number;
+  player1team1: number;
+  player2team2: number;
   playTime: Time;
 
   constructor() {
-    super();
   }
+
 }
