@@ -6,7 +6,6 @@ import {startWith} from 'rxjs/internal/operators/startWith';
 import {User} from '../models/user';
 import {UserService} from '../services/user.service';
 import {AdultMatch, Match, SingleMatch, TeamMatch} from '../models/match';
-import {Time} from '@angular/common';
 import {MatchService} from '../services/match.service';
 
 @Component({
@@ -212,14 +211,12 @@ export class MatchentryComponent implements OnInit {
     this.selectedPlayer4 = player;
   }
 
-  private getPlaytime(): Time {
+  private getPlaytime(): number {
+    let time: number;
     const timeString: string = this.matchform.get('playtime').value;
     const timeArray: string[] = timeString.split(':');
-    let time: Time;
-    time = {
-      hours: +timeArray[0], // + casts string to number
-      minutes: +timeArray[1]
-    };
+    time = +timeArray[0] * 3.6e+6;
+    time = time + +timeArray[1] * 60000;
     return time;
   }
 
