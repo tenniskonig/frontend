@@ -10,6 +10,7 @@ import {AuthService} from '../services/auth.service';
 export class HeaderComponent implements OnInit {
   private loggedIn: boolean;
   currentUsername: string;
+  isAdmin: boolean;
 
   constructor(private router: Router, private auth: AuthService) {
     this.auth.changeEmitted$.subscribe(() => {
@@ -20,6 +21,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.updateUserCredentials();
+    this.isAdmin = false;
   }
 
   routeMatchentry() {
@@ -51,5 +53,9 @@ export class HeaderComponent implements OnInit {
 
   routeRules() {
     this.router.navigate(['/Regeln']);
+  }
+
+  routePenaltyhistory() {
+    this.router.navigate(['/Strafen']);
   }
 }
