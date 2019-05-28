@@ -1,0 +1,12 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+// TCO Colors
+$tco-primary: mat-palette($mat-grey, 600);
+$tco-accent:  mat-palette($mat-yellow, A400);
+$tco-warn:    mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$tco-theme: mat-light-theme($tco-primary, $tco-accent, $tco-warn);
+
+@include angular-material-theme($tco-theme);

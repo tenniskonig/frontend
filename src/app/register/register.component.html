@@ -1,0 +1,44 @@
+<mat-card class="mat-elevation-z8">
+  <mat-card-header>
+    <mat-card-title>Registrieren</mat-card-title>
+  </mat-card-header>
+  <!--  Fehler meldung wenn Registrierung fehlschlägt -->
+  <mat-card-content>
+    <!--  Anmeldeformular -->
+    <form [formGroup]="registerform">
+      <mat-form-field color="accent">
+        <input matInput type="text" placeholder="Vorname" formControlName="firstName">
+        <mat-error *ngIf="this.registerform.controls.firstName.hasError('required')">
+          Bitte gib einen Vornamen an
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field color="accent">
+        <input matInput type="text" placeholder="Nachname" formControlName="lastName">
+        <mat-error *ngIf="this.registerform.controls.lastName.hasError('required')">
+          Bitte gib einen Nachnamen an
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field color="accent">
+        <input matInput type="password" placeholder="Passwort" formControlName="password1">
+        <mat-error *ngIf="this.registerform.controls.password1.hasError('required')">
+          Bitte gib ein Passwort an
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field color="accent">
+        <input matInput type="password" placeholder="Passwort wiederholen" formControlName="password2">
+        <mat-error *ngIf="this.registerform.controls.password2.hasError('required')">
+          Bitte gib ein Passwort an
+        </mat-error>
+      </mat-form-field>
+      <div>
+        <mat-radio-group aria-label="Geschlecht" formControlName="geschlechtW">
+          <mat-radio-button value="false">Männlich</mat-radio-button>
+          <mat-radio-button value="true">Weiblich</mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="accent" (click)="register()">Registrieren</button>
+  </mat-card-actions>
+</mat-card>

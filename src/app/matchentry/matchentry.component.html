@@ -1,0 +1,113 @@
+<mat-card class="form-card mat-elevation-z8">
+  <mat-card-header>
+    <mat-card-title>Spiel eintragen</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <!--    Form für Ergebnisse und Spieler  -->
+    <form [formGroup]="matchform">
+      <div class="team1 first-line full-width">
+        <div class="mat-subheading-2" [hidden]="!isTeammatch">Mannschaft 1</div>
+        <!--        Spieler 1 -->
+        <mat-form-field color="accent" class="float player-input">
+          <input matInput type="text" placeholder="Spieler 1" formControlName="player1" [matAutocomplete]="auto1"
+                 (focusout)="changeAdultplayer()">
+        </mat-form-field>
+        <mat-autocomplete #auto1="matAutocomplete">
+          <mat-option *ngFor="let player of filteredPlayers1 | async"
+                      [value]="player.firstName + ' ' + player.lastName"
+                      (click)="setPlayer1(player)">{{player.firstName}} {{player.lastName}}</mat-option>
+        </mat-autocomplete>
+
+        <!--        Spieler 2 -->
+        <mat-form-field color="accent" class="float player-input">
+          <input matInput type="text" placeholder="Spieler 2" formControlName="player2" [matAutocomplete]="auto2"
+                 (focusout)="changeAdultplayer()">
+        </mat-form-field>
+        <mat-autocomplete #auto2="matAutocomplete">
+          <mat-option *ngFor="let player of filteredPlayers2 | async"
+                      [value]="player.firstName + ' ' + player.lastName"
+                      (click)="setPlayer2(player)">{{player.firstName}} {{player.lastName}}</mat-option>
+        </mat-autocomplete>
+
+        <mat-checkbox class="float" formControlName="teammatch" (change)="changeTeammatch()">Doppel</mat-checkbox>
+        <div class="clear"></div>
+      </div>
+
+      <div class="second-line full-width" [hidden]="!isTeammatch">
+        <div class="mat-subheading-2" [hidden]="!isTeammatch">Mannschaft 2</div>
+        <!--        Spieler 3 -->
+        <mat-form-field color="accent" class="float player-input">
+          <input matInput type="text" placeholder="Spieler 3" formControlName="player3" [matAutocomplete]="auto3">
+        </mat-form-field>
+        <mat-autocomplete #auto3="matAutocomplete">
+          <mat-option *ngFor="let player of filteredPlayers3 | async"
+                      [value]="player.firstName + ' ' + player.lastName"
+                      (click)="setPlayer3(player)">{{player.firstName}} {{player.lastName}}</mat-option>
+        </mat-autocomplete>
+
+        <!--        Spieler 4 -->
+        <mat-form-field color="accent" class="float player-input">
+          <input matInput type="text" placeholder="Spieler 4" formControlName="player4" [matAutocomplete]="auto4">
+        </mat-form-field>
+        <mat-autocomplete #auto4="matAutocomplete">
+          <mat-option *ngFor="let player of filteredPlayers4 | async"
+                      [value]="player.firstName + ' ' + player.lastName"
+                      (click)="setPlayer4(player)">{{player.firstName}} {{player.lastName}}</mat-option>
+        </mat-autocomplete>
+        <div class="clear"></div>
+      </div>
+
+      <div class="match-results" [hidden]="isAdultPlayer">
+        <div class="float satz">
+          <div><span class="mat-subheading-2">Satz 1</span></div>
+          <mat-form-field color="accent" class="points">
+            <input matInput type="text" formControlName="satz1pointsplayer1">
+          </mat-form-field>
+          <span>:</span>
+          <mat-form-field color="accent" class="points">
+            <input matInput type="text" formControlName="satz1pointsplayer2">
+          </mat-form-field>
+        </div>
+        <div class="float satz">
+          <div><span class="mat-subheading-2">Satz 2</span></div>
+          <mat-form-field color="accent" class="points">
+            <input matInput type="text" formControlName="satz2pointsplayer1">
+          </mat-form-field>
+          <span>:</span>
+          <mat-form-field color="accent" class="points">
+            <input matInput type="text" formControlName="satz2pointsplayer2">
+          </mat-form-field>
+        </div>
+        <div class="float satz">
+          <div><span class="mat-subheading-2">Satz 3 (optional)</span></div>
+          <mat-form-field color="accent" class="points">
+            <input matInput type="text" formControlName="satz3pointsplayer1">
+          </mat-form-field>
+          <span>:</span>
+          <mat-form-field color="accent" class="points">
+            <input matInput type="text" formControlName="satz3pointsplayer2">
+          </mat-form-field>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="playtime" [hidden]="!isAdultPlayer">
+        <mat-form-field color="accent">
+          <input matInput type="text" placeholder="Gespielte Zeit (hh:mm)" formControlName="playtime">
+        </mat-form-field>
+      </div>
+      <div class="playdate">
+        <mat-form-field color="accent">
+          <input matInput [matDatepicker]="picker" placeholder="Datum" formControlName="playdate">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button mat-raised-button color="accent" (click)="submit()">Eintragen</button>
+  </mat-card-actions>
+</mat-card>
+
+
+

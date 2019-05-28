@@ -1,0 +1,76 @@
+<mat-card class="mat-elevation-z8">
+  <mat-card-header>Meine Einzelspiele</mat-card-header>
+  <mat-card-content>
+    <table mat-table [dataSource]="singlematchesObservable">
+      <ng-container matColumnDef="player1">
+        <th mat-header-cell *matHeaderCellDef>Spieler 1</th>
+        <td mat-cell *matCellDef="let match">{{match.player1team1}}</td>
+      </ng-container>
+      <ng-container matColumnDef="player3">
+        <th mat-header-cell *matHeaderCellDef>Spieler 2</th>
+        <td mat-cell *matCellDef="let match">{{match.player2team2}}</td>
+      </ng-container>
+      <ng-container matColumnDef="results">
+        <th mat-header-cell *matHeaderCellDef>Ergebnisse</th>
+        <td mat-cell *matCellDef="let match">{{match.results}}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="singleColumns"></tr>
+      <tr mat-row *matRowDef="let myRowData; columns: singleColumns"></tr>
+    </table>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="mat-elevation-z8">
+  <mat-card-header>Meine Mannschaftsspiele</mat-card-header>
+  <mat-card-content>
+    <table mat-table [dataSource]="teammatchesObservable">
+      <ng-container matColumnDef="player1">
+        <th mat-header-cell *matHeaderCellDef>Spieler 1 (Mannschaft 1)</th>
+        <td mat-cell *matCellDef="let match">{{match.player1team1}}</td>
+      </ng-container>
+      <ng-container matColumnDef="player2">
+        <th mat-header-cell *matHeaderCellDef>Spieler 2 (Mannschaft 1)</th>
+        <td mat-cell *matCellDef="let match">{{match.player3team1}}</td>
+      </ng-container>
+      <ng-container matColumnDef="player3">
+        <th mat-header-cell *matHeaderCellDef>Spieler 3 (Mannschaft 2)</th>
+        <td mat-cell *matCellDef="let match">{{match.player2team2}}</td>
+      </ng-container>
+      <ng-container matColumnDef="player4">
+        <th mat-header-cell *matHeaderCellDef>Spieler 4 (Mannschaft 2)</th>
+        <td mat-cell *matCellDef="let match">{{match.player4team2}}</td>
+      </ng-container>
+      <ng-container matColumnDef="results">
+        <th mat-header-cell *matHeaderCellDef>Ergebnisse</th>
+        <td mat-cell *matCellDef="let match">{{match.results}}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="teamColumns"></tr>
+      <tr mat-row *matRowDef="let myRowData; columns: teamColumns"></tr>
+    </table>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="mat-elevation-z8">
+  <mat-card-header>Meine Spiele gegen Erwachsene</mat-card-header>
+  <mat-card-content>
+    <table mat-table [dataSource]="adultmatchesObservable">
+      <ng-container matColumnDef="player1">
+        <th mat-header-cell *matHeaderCellDef>Spieler 1</th>
+        <td mat-cell *matCellDef="let match">{{match.player1team1}}</td>
+      </ng-container>
+      <ng-container matColumnDef="player2">
+        <th mat-header-cell *matHeaderCellDef>Spieler 2</th>
+        <td mat-cell *matCellDef="let match">{{match.player2team2}}</td>
+      </ng-container>
+      <ng-container matColumnDef="playtime">
+        <th mat-header-cell *matHeaderCellDef>Gespielte Zeit</th>
+        <td mat-cell *matCellDef="let match">{{match.playTime}}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="adultColumns"></tr>
+      <tr mat-row *matRowDef="let myRowData; columns: adultColumns"></tr>
+    </table>
+  </mat-card-content>
+</mat-card>

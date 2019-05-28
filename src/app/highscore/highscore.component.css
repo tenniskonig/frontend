@@ -1,0 +1,21 @@
+table {
+  width: 80%;
+  margin: auto;
+  margin-top: 1em;
+}
+
+.mat-column-position {
+  width: 10%;
+}
+
+.mat-column-name {
+  width: 40%;
+}
+
+.mat-column-matchesPlayed {
+  width: 25%;
+}
+
+.mat-column-points {
+  width: 25%;
+}
