@@ -9,6 +9,7 @@ import {LoginComponent} from './login/login.component';
 import {AuthGuardService as AuthGuard} from './services/auth-guard.service';
 import {RulesComponent} from './rules/rules.component';
 import {PenaltyHistoryComponent} from './penalty-history/penalty-history.component';
+import {PenaltyDashboardAdminComponent} from './penalty-dashboard-admin/penalty-dashboard-admin.component';
 
 const routes: Routes = [
   {path: 'SpielerErstellen', component: AppComponent},
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path: 'Matchverlauf', component: MatchHistoryComponent, canActivate: [AuthGuard]},
   {path: 'Regeln', component: RulesComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'Strafen', component: PenaltyHistoryComponent, canActivate: [AuthGuard]}
+  {path: 'Strafen', component: PenaltyHistoryComponent, canActivate: [AuthGuard]},
+  {path: 'Strafe-vergeben', component: PenaltyDashboardAdminComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

@@ -10,7 +10,7 @@
       <mat-menu #matchMenu="matMenu">
         <button mat-menu-item (click)="routeMatchhistory()">Spielverlauf</button>
         <button mat-menu-item (click)="routePenaltyhistory()">Strafen</button>
-        <button [hidden]="!isAdmin" mat-menu-item (click)="routeMatchhistory()">Strafen vergeben</button>
+        <button [hidden]="!isAdmin" mat-menu-item (click)="routePenaltydashboard()">Strafen vergeben</button>
       </mat-menu>
     </div>
     <button mat-button (click)="routeRules()">Regeln</button>

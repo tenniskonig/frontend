@@ -58,4 +58,8 @@ export class HeaderComponent implements OnInit {
   routePenaltyhistory() {
     this.router.navigate(['/Strafen']);
   }
+
+  routePenaltydashboard() {
+    this.router.navigate(['/Strafe-vergeben']);
+  }
 }
