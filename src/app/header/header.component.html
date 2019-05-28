@@ -6,7 +6,12 @@
     </div>
     <button mat-button (click)="routeHighscore()">Bestenliste</button>
     <div [hidden]="!loggedIn">
-      <button mat-button (click)="routeMatchhistory()">Matchverlauf</button>
+      <button mat-button [mat-menu-trigger-for]="matchMenu">Meine Spiele</button>
+      <mat-menu #matchMenu="matMenu">
+        <button mat-menu-item (click)="routeMatchhistory()">Spielverlauf</button>
+        <button mat-menu-item (click)="routePenaltyhistory()">Strafen</button>
+        <button [hidden]="!isAdmin" mat-menu-item (click)="routePenaltydashboard()">Strafen vergeben</button>
+      </mat-menu>
     </div>
     <button mat-button (click)="routeRules()">Regeln</button>
     <span class="spacer"></span>
