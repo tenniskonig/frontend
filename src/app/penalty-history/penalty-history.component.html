@@ -1,3 +1,19 @@
-<p>
-  penalty-history works!
-</p>
+<mat-card class="mat-elevation-z8">
+  <mat-card-header>Meine Strafen</mat-card-header>
+  <mat-card-content>
+    <table mat-table [dataSource]="penaltiesObservable" *ngIf="penalties !== []">
+      <ng-container matColumnDef="match">
+        <th mat-header-cell *matHeaderCellDef>Spiel</th>
+        <td mat-cell *matCellDef="let penalty">{{penalty.match}}</td>
+      </ng-container>
+      <ng-container matColumnDef="reason">
+        <th mat-header-cell *matHeaderCellDef>Begründung</th>
+        <td mat-cell *matCellDef="let penalty">{{penalty.reason}}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="columns"></tr>
+      <tr mat-row *matRowDef="let myRowData; columns: columns"></tr>
+    </table>
+    <span *ngIf="penalties === []">Du hast noch keine Strafen erhalten</span>
+  </mat-card-content>
+</mat-card>
