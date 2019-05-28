@@ -33,7 +33,6 @@ export class MatchHistoryComponent implements OnInit {
     this.adultmatches = [];
     this.matchService.getMatchesByPlayer(AuthService.currentUserID).subscribe(
       res => {
-        console.log(res);
         res.forEach(m => {
           this.addMatches(m);
         });

@@ -14,8 +14,6 @@ export class HighscoreComponent implements OnInit {
   columnsToDisplay = ['position', 'name', 'matchesPlayed', 'points'];
   highscoreObservable: Observable<HighscoreEntry[]>;
 
-  test: number[];
-
   constructor(private highscoreService: HighscoreService) {
   }
 
