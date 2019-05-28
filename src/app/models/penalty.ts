@@ -3,7 +3,7 @@ import {Match} from './match';
 
 export class Penalty {
   penaltyID: number;
-  player: User;
-  match: Match;
+  player: number;
+  match: number;
   reason: string;
 }
