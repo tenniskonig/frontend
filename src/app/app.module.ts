@@ -17,6 +17,7 @@ import {RulesComponent} from './rules/rules.component';
 import {MAT_DATE_LOCALE} from '@angular/material';
 import {JwtHttpInterceptor} from './services/httpInterceptor';
 import { RegisterComponent } from './register/register.component';
+import { PenaltyHistoryComponent } from './penalty-history/penalty-history.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { RegisterComponent } from './register/register.component';
     MatchHistoryComponent,
     LoginComponent,
     RulesComponent,
-    RegisterComponent
+    RegisterComponent,
+    PenaltyHistoryComponent
   ],
   imports: [
     BrowserModule,
