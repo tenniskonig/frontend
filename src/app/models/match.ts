@@ -17,7 +17,7 @@ export class Match implements IMatch {
   results: string;
   gameSetTeam1: number;
   gameSetTeam2: number;
-  playTime: Time;
+  playTime: number;
 }
 
 export class SingleMatch implements IMatch {
@@ -53,7 +53,7 @@ export class AdultMatch implements IMatch {
   gameID: number;
   player1team1: number;
   player2team2: number;
-  playTime: Time;
+  playTime: number;
 
   constructor() {
   }
