@@ -12,7 +12,7 @@ exports.config = {
   framework: 'custom',
   frameworkPath: require.resolve('protractor-cucumber-framework'),
   cucumberOpts: {
-    require: ['./src/steps/**/*.steps.ts'],
+    require: ['./src/step_definitions/**/*.steps.ts'],
   },
 
   onPrepare() {
