@@ -4,7 +4,7 @@
     <div [hidden]="!loggedIn">
       <button mat-button (click)="routeMatchentry()">Spiel erstellen</button>
     </div>
-    <button mat-button (click)="routeHighscore()">Bestenliste</button>
+    <button mat-button (click)="routeHighscore()" id="btnHighscores">Bestenliste</button>
     <div [hidden]="!loggedIn">
       <button mat-button [mat-menu-trigger-for]="matchMenu">Meine Spiele</button>
       <mat-menu #matchMenu="matMenu">
