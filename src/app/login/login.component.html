@@ -15,7 +15,7 @@
     <!--  Anmeldeformular -->
     <form [formGroup]="loginform">
       <mat-form-field color="accent">
-        <input matInput type="text" placeholder="Nutzername" formControlName="username">
+        <input matInput type="text" placeholder="Nutzername" formControlName="username" id="username">
         <mat-error *ngIf="this.loginform.controls.username.hasError('pattern')">
           Bitte gib einen gültigen Nutzernamen in der Form <strong>Vorname.Nachname</strong> an
         </mat-error>
@@ -24,7 +24,7 @@
         </mat-error>
       </mat-form-field>
       <mat-form-field color="accent">
-        <input matInput type="password" placeholder="Passwort" formControlName="password">
+        <input matInput type="password" placeholder="Passwort" formControlName="password" id="password">
         <mat-error *ngIf="this.loginform.controls.password.hasError('required')">
           Bitte gib dein Passwort an
         </mat-error>
@@ -32,7 +32,7 @@
     </form>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button color="accent" (click)="login()">Login</button>
+    <button mat-raised-button color="accent" (click)="login()" id="submit">Login</button>
   </mat-card-actions>
 </mat-card>
 

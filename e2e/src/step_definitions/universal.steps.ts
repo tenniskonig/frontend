@@ -1,4 +1,4 @@
-import {Before, Given, Then, When} from 'cucumber';
+import {Before, Given} from 'cucumber';
 
 import {UniversalPage} from '../pages/universalPage.po';
 
@@ -10,4 +10,9 @@ Before(() => {
 
 Given(/^I am on the homepage$/, async () => {
   await page.navigateToHome();
+});
+
+Given(/^I am logged in$/, async () => {
+  await page.navigateToLogin();
+  await page.login();
 });

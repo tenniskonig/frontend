@@ -2,7 +2,7 @@
   <mat-toolbar-row>
     <span>Tenniskönig</span>
     <div *ngIf="loggedIn">
-      <button mat-button (click)="routeMatchentry()">Spiel erstellen</button>
+      <button mat-button (click)="routeMatchentry()" id="createMatch">Spiel erstellen</button>
     </div>
     <button mat-button (click)="routeHighscore()" id="btnHighscores">Bestenliste</button>
     <div *ngIf="loggedIn">

@@ -10,7 +10,7 @@ Before(() => {
 });
 
 When(/^I click on element having id "btnHighscores"$/, async () => {
-  page.getHighscoreutton().click();
+  page.getHighscoreButton().click();
 });
 
 Then(/^I am on the higscore page$/, async () => {

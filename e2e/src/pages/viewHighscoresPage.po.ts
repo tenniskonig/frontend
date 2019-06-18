@@ -1,7 +1,7 @@
 import {browser, by, element} from 'protractor';
 
 export class ViewHighscoresPage {
-  getHighscoreutton() {
+  getHighscoreButton() {
     return element(by.css('#btnHighscores'));
   }
 
